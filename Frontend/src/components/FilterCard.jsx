@@ -7,7 +7,7 @@ import { setSearchedQuery } from "@/redux/jobSlice.js";
 const fitlerData = [
   {
     fitlerType: "Location",
-    array: ["Delhi NCR", "Banglore", "Hyderabad", "Pune", "Mumbai", "Chennai"],
+    array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai", "Chennai"],
   },
   {
     fitlerType: "Industry",
