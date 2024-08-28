@@ -4,6 +4,7 @@ import {
   getAllJobs,
   getJobById,
   postJob,
+  deleteJob,
 } from "../controllers/job.controller.js";
 import isAuthenticated from "../middlewares/isAuthenticated.js";
 
@@ -13,5 +14,6 @@ router.route("/post").post(isAuthenticated, postJob);
 router.route("/get").get(isAuthenticated, getAllJobs);
 router.route("/getadminjobs").get(isAuthenticated, getAdminJobs);
 router.route("/get/:id").get(isAuthenticated, getJobById);
+router.route("/jobs/:id").delete(deleteJob);
 
 export default router;

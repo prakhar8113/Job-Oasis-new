@@ -23,10 +23,10 @@ const fitlerData = [
       "UX/UI Designer",
     ],
   },
-  {
-    fitlerType: "Salary",
-    array: ["0lakhs to 6lakhs", "7lakhs to 13lakh", "14lakh to 20lakh"],
-  },
+  // {
+  //   fitlerType: "Salary",
+  //   array: ["0lakhs to 6lakhs", "7lakhs to 13lakh", "14lakh to 20lakh"],
+  // },
 ];
 
 const FilterCard = () => {

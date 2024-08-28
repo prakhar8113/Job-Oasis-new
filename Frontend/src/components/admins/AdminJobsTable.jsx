@@ -35,6 +35,27 @@ const AdminJobsTable = () => {
     });
     setFilterJobs(filteredJobs);
   }, [allAdminJobs, searchJobByText]);
+  const deleteJob = async (jobId) => {
+    try {
+      const response = await axios.delete(`${JOB_API_END_POINT}/jobs/${jobId}`);
+
+      if (response.data.success) {
+        // Remove the job from the local state immediately
+        setFilterJobs((prevJobs) =>
+          prevJobs.filter((job) => job._id !== jobId)
+        );
+        toast.success("Job deleted successfully");
+        // Optionally refresh the job list from the server
+        // dispatch(fetchAdminJobs());
+      } else {
+        toast.error("Failed to delete job");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occurred while deleting the job");
+    }
+  };
+
   return (
     <div>
       <Table>
@@ -73,13 +94,6 @@ const AdminJobsTable = () => {
                   </PopoverTrigger>
                   <PopoverContent className="w-32">
                     <div
-                      onClick={() => navigate(`/admin/companies/${job._id}`)}
-                      className="flex items-center gap-2 w-fit cursor-pointer"
-                    >
-                      <Edit2 className="w-4" />
-                      <span>Edit</span>
-                    </div>
-                    <div
                       onClick={() =>
                         navigate(`/admin/jobs/${job._id}/applicants`)
                       }
@@ -87,6 +101,13 @@ const AdminJobsTable = () => {
                     >
                       <Eye className="w-4" />
                       <span>Applicants</span>
+                    </div>
+                    <div
+                      onClick={() => deleteJob(job._id)}
+                      className="flex items-center gap-2 w-fit cursor-pointer mt-2 text-red-600"
+                    >
+                      <Trash2 className="w-4" />
+                      <span>Delete</span>
                     </div>
                   </PopoverContent>
                 </Popover>

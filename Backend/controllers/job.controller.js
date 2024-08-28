@@ -53,6 +53,35 @@ export const postJob = async (req, res) => {
     console.log(error);
   }
 };
+
+export const deleteJob = async (req, res) => {
+  try {
+    const jobId = req.params.id;
+    console.log("jobId", jobId);
+
+    const job = await Job.findByIdAndDelete(jobId);
+    console.log("Job", Job);
+
+    if (!job) {
+      return res.status(404).json({
+        message: "Job not found.",
+        success: false,
+      });
+    }
+
+    return res.status(200).json({
+      message: "Job deleted successfully.",
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Something went wrong.",
+      success: false,
+    });
+  }
+};
+
 // student k liye
 export const getAllJobs = async (req, res) => {
   try {
