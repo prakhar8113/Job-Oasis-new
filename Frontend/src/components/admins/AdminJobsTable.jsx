@@ -15,6 +15,8 @@ import { Edit2, Eye, MoreHorizontal, Trash2 } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Avatar, AvatarImage } from "../ui/avatar.jsx";
+import { JOB_API_END_POINT } from "@/utils/constant.js";
+import axios from "axios";
 
 const AdminJobsTable = () => {
   const { allAdminJobs, searchJobByText } = useSelector((store) => store.job);
