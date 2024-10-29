@@ -25,8 +25,9 @@ const HeroSection = () => {
           <span className="text-[#6A38C2]">Dream Jobs</span>
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-          aspernatur temporibus nihil tempora dolor!
+          Discover your dream job at Job Oasis—where talent meets opportunity in
+          a seamless, user-friendly experience! Find exciting career paths
+          tailored just for you!
         </p>
         <div className="flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto">
           <input
